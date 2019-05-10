@@ -18,11 +18,10 @@ Jason Hsu: [@duidae](https://github.com/duidae)
 ## Installation & Running
 
 [本地執行] (先安裝 [Node.js](https://nodejs.org/en/))
-1. $ git clone https://github.com/duidae/UrbanRenewalEye.git
-2. $ npm install
-3. $ npm run hotbuild & (放到背景, 只要有修改就會即時編譯更新, 這部分是 front-end) (或 npm run build 只編譯一次)
-4. $ npm run start (啟動 web server, 這部分是 back-end)
-5. 用browser開啟 https://localhost:8080
+  $ git clone https://github.com/duidae/UrbanRenewalEye.git
+  $ npm install
+  $ npm start
+  open https://localhost:3000 with browser
 
 ## Reference
 
