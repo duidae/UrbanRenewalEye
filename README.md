@@ -1,6 +1,5 @@
 # UrbanRenewalEye: 都市更新天眼通(臺北市都市更新地圖)
 
-![web page](doc/page.png)
 
 ## Contact
 
