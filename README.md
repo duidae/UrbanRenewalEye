@@ -1,44 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UrbanRenewalEye: 都市更新天眼通(臺北市都市更新地圖)
 
-## Available Scripts
+![web page](doc/page.png)
 
-In the project directory, you can run:
+## Contact
 
-### `npm start`
+Jason Hsu: [@duidae](https://github.com/duidae)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Background
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+都市更新天眼通希望以簡單易懂的都更簡介、簡易上手的都更地圖，與資訊豐沛的都市更新教室，結合民眾參與，使民眾、政府、民間單位能透過天眼通直觀有效的獲取各地都市更新資訊，以期讓民間能得到公開透明的資訊、協助政府未來都市更新、都市發展政策之研擬。
 
-### `npm test`
+* [都市更新天眼通網站](https://urban-renewal.herokuapp.com)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [都市更新天眼通FB粉專](https://www.facebook.com/urbanrenewaleye)
 
-### `npm run build`
+* [GitHub](https://github.com/duidae/UrbanRenewalEye)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation & Running
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+[本地執行] (先安裝 [Node.js](https://nodejs.org/en/))
+1. $ git clone https://github.com/duidae/UrbanRenewalEye.git
+2. $ npm install
+3. $ npm run hotbuild & (放到背景, 只要有修改就會即時編譯更新, 這部分是 front-end) (或 npm run build 只編譯一次)
+4. $ npm run start (啟動 web server, 這部分是 back-end)
+5. 用browser開啟 https://localhost:8080
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Reference
 
-### `npm run eject`
+* [臺北市都市更新處](https://uro.gov.taipei/Default.aspx)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* [聽證,公聽會(公民參與會議資訊)(json)](https://civil.gov.taipei/OpenData.aspx?SN=881665EB5B77192F)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [臺北市自動化3D近似建物模型open data](http://data.taipei/opendata/datalist/datasetMeta?oid=9b7d78d2-0d73-4b42-9b29-c1640efed0eb)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [建物3d+地圖](http://sheethub.github.io/tpe3d/3dtaipei4347-2.html)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [空屋地圖](https://buzzorange.com/2016/09/13/ko-p-talking-about-living-justic/) 使用量低於 60 度以下的用戶才會被標記為空屋
