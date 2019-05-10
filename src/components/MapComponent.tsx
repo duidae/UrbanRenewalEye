@@ -1,6 +1,6 @@
 import React from 'react';
 import {withGoogleMap, GoogleMap} from "react-google-maps"
-import './MapComponent.css'
+import './MapComponent.scss'
 
 export class MapComponent extends React.Component {
     private static readonly TAIPEI = {lat: 25.038357847174, lng: 121.54770626982};
