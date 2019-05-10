@@ -16,8 +16,6 @@ Jason Hsu: [@duidae](https://github.com/duidae)
 * [GitHub](https://github.com/duidae/UrbanRenewalEye)
 
 ## Installation & Running
-
-[本地執行] (先安裝 [Node.js](https://nodejs.org/en/))
   * $ git clone https://github.com/duidae/UrbanRenewalEye.git
   * $ npm install
   * $ npm start
