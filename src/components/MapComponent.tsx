@@ -1,5 +1,5 @@
 import React from 'react';
-import {withGoogleMap, GoogleMap} from "react-google-maps"
+import GoogleMapReact from "google-map-react"
 import './MapComponent.scss'
 
 export class MapComponent extends React.Component {
@@ -7,18 +7,11 @@ export class MapComponent extends React.Component {
     private static readonly ZOOM_INITIAL = 13;
     
     render() {
-        const Map = withGoogleMap(props => (
-            <GoogleMap
-                defaultCenter = {MapComponent.TAIPEI}
-                defaultZoom = {MapComponent.ZOOM_INITIAL}
-            >
-            </GoogleMap>
-        ));
-
         return (
-            <Map
-                containerElement={<div className="container"/>}
-                mapElement={<div className="map"/>}
+            <GoogleMapReact
+                bootstrapURLKeys={{ key: 'AIzaSyDWfXknzR5myhgKP-qkRwbWLMnqLaLjEP8' }}
+                defaultCenter={MapComponent.TAIPEI}
+                defaultZoom={MapComponent.ZOOM_INITIAL}
             />
         );
     }
