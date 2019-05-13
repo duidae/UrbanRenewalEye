@@ -18,7 +18,7 @@ export class MapComponent extends React.Component {
                 defaultZoom={MapComponent.ZOOM_INITIAL}
             >
                 <SearchBox
-                    placeholder={"Search location"}
+                    placeholder={"來去看看我家?"}
                     onPlacesChanged={this.handleSearch}
                 />
             </GoogleMapReact>
