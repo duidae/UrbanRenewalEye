@@ -5,7 +5,7 @@ import {MapComponent} from "components/MapComponent"
 const App: React.FC = () => {
     return (
         <div className="App">
-            <MapComponent/>
+            <MapComponent id="map"/>
         </div>
     );
 }
