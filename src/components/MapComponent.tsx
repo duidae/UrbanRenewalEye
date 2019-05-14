@@ -13,14 +13,15 @@ export class MapComponent extends React.Component {
     render() {
         return (
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyDWfXknzR5myhgKP-qkRwbWLMnqLaLjEP8' }}
+                bootstrapURLKeys={{
+                    key: 'AIzaSyDWfXknzR5myhgKP-qkRwbWLMnqLaLjEP8',
+                    language: 'ch',
+                    region: 'tw',
+                }}
                 defaultCenter={MapComponent.TAIPEI}
                 defaultZoom={MapComponent.ZOOM_INITIAL}
             >
-                <SearchBox
-                    placeholder={"來去看看我家?"}
-                    onPlacesChanged={this.handleSearch}
-                />
+                <SearchBox/>
             </GoogleMapReact>
         );
     }
