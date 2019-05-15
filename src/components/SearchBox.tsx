@@ -22,7 +22,16 @@ export class SearchBox extends React.Component<SearchBoxProps> {
 
     constructor(props: SearchBoxProps) {
         super(props);
-        this.searchBox = new google.maps.places.SearchBox(document.getElementById(this.props.id));
+
+        const input = document.getElementById(this.props.id);
+        const defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-33.8902, 151.1759),
+            new google.maps.LatLng(-33.8474, 151.2631)
+        );
+
+        this.searchBox = new google.maps.places.SearchBox(input, {
+            bounds: defaultBounds
+        });
         this.searchBox.addListener('onPlaceChange', this.onPlaceChange);
     }
 
