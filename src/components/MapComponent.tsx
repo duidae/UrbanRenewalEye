@@ -13,6 +13,36 @@ export class MapComponent extends React.Component<MapComponentProps> {
     private static readonly ZOOM_INITIAL = 13;
 
     private map: any;
+    private searchBox: any;
+
+    private onBoundsChange = () => {
+        this.searchBox.setBounds(this.map.getBounds());
+    };
+
+    private onPlaceChange = () => {
+        const places = this.searchBox.getPlaces();
+
+        if (places.length === 0) {
+            return;
+        }
+
+        // For each place, get the icon, name and location.
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach((place: any) => {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        this.map.fitBounds(bounds);
+    };
 
     componentDidMount() {
         this.map = new google.maps.Map(document.getElementById(this.props.id), {
@@ -22,15 +52,13 @@ export class MapComponent extends React.Component<MapComponentProps> {
 
         if (this.props.enableSearchBox) {
             const input = document.getElementById(this.props.id+"searchbox");
-            const defaultBounds = new google.maps.LatLngBounds(
-                new google.maps.LatLng(-33.8902, 151.1759),
-                new google.maps.LatLng(-33.8474, 151.2631)
-            );
 
-            const searchBox: any = new google.maps.places.SearchBox(input, {
-                bounds: defaultBounds
-            });
-            this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchBox);
+            // TODO: move searchBox to store
+            this.searchBox = new google.maps.places.SearchBox(input);
+            this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(this.searchBox);
+
+            this.map.addListener('bounds_changed', this.onBoundsChange);
+            this.searchBox.addListener('places_changed', this.onPlaceChange);
         }
     }
 
