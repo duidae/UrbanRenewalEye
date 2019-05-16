@@ -1,5 +1,6 @@
 import React from 'react';
 import './MapComponent.scss'
+import './SearchBox.scss'
 
 declare const google: any;
 
@@ -27,7 +28,7 @@ export class MapComponent extends React.Component<MapComponentProps> {
         }
 
         // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
+        let bounds = new google.maps.LatLngBounds();
         places.forEach((place: any) => {
             if (!place.geometry) {
                 console.log("Returned place contains no geometry");
@@ -47,15 +48,16 @@ export class MapComponent extends React.Component<MapComponentProps> {
     componentDidMount() {
         this.map = new google.maps.Map(document.getElementById(this.props.id), {
             center: MapComponent.TAIPEI,
-            zoom: MapComponent.ZOOM_INITIAL
+            zoom: MapComponent.ZOOM_INITIAL,
+            mapTypeControl: false,
         });
 
         if (this.props.enableSearchBox) {
-            const input = document.getElementById(this.props.id+"searchbox");
+            const input = document.getElementById(this.props.id+"-searchbox");
 
             // TODO: move searchBox to store
             this.searchBox = new google.maps.places.SearchBox(input);
-            this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(this.searchBox);
+            //this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(this.searchBox);
 
             this.map.addListener('bounds_changed', this.onBoundsChange);
             this.searchBox.addListener('places_changed', this.onPlaceChange);
@@ -65,7 +67,7 @@ export class MapComponent extends React.Component<MapComponentProps> {
     render() {
         return (
             <div>
-                {this.props.enableSearchBox ? <input id={this.props.id+"searchbox"} className="SearchBox" type="text" placeholder="看看我家在哪?"/> : ""}
+                {this.props.enableSearchBox ? <input id={this.props.id+"-searchbox"} className="SearchBox" type="text" placeholder="看看我家在哪?"/> : ""}
                 <div className="Map" id={this.props.id}/>
             </div>
         );
