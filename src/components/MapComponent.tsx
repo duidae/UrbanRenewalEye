@@ -14,12 +14,12 @@ export class MapComponent extends React.Component<MapComponentProps> {
     private static readonly ZOOM_INITIAL = 13;
 
     private map: any;
-    private searchBox: any;
 
     private onBoundsChange = () => {
-        this.searchBox.setBounds(this.map.getBounds());
+        //this.searchBox.setBounds(this.map.getBounds());
     };
 
+    /*
     private onPlaceChange = () => {
         const places = this.searchBox.getPlaces();
 
@@ -44,6 +44,7 @@ export class MapComponent extends React.Component<MapComponentProps> {
         });
         this.map.fitBounds(bounds);
     };
+    */
 
     componentDidMount() {
         this.map = new google.maps.Map(document.getElementById(this.props.id), {
@@ -51,7 +52,9 @@ export class MapComponent extends React.Component<MapComponentProps> {
             zoom: MapComponent.ZOOM_INITIAL,
             mapTypeControl: false,
         });
+        this.map.addListener('bounds_changed', this.onBoundsChange);
 
+        /*
         if (this.props.enableSearchBox) {
             const input = document.getElementById(this.props.id+"-searchbox");
 
@@ -62,6 +65,7 @@ export class MapComponent extends React.Component<MapComponentProps> {
             this.map.addListener('bounds_changed', this.onBoundsChange);
             this.searchBox.addListener('places_changed', this.onPlaceChange);
         }
+        */
     }
 
     render() {
