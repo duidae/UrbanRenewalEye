@@ -1,6 +1,6 @@
-import React from 'react';
-import './MapComponent.scss'
-import './SearchBox.scss'
+import React from "react";
+import "components/MapComponent.scss";
+import "components/SearchBox.scss";
 
 declare const google: any;
 
@@ -66,10 +66,7 @@ export class MapComponent extends React.Component<MapComponentProps> {
 
     render() {
         return (
-            <div>
-                {this.props.enableSearchBox ? <input id={this.props.id+"-searchbox"} className="SearchBox" type="text" placeholder="看看我家在哪?"/> : ""}
-                <div className="Map" id={this.props.id}/>
-            </div>
+            <div className="Map" id={this.props.id}/>
         );
     }
 }
