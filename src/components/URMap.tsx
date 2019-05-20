@@ -1,8 +1,8 @@
 import React from "react";
 import {MapComponent} from "components/MapComponent";
-import {ControlPanel} from "components/ControlPanel";
+import {ControlPanel} from "components/ControlPanel/ControlPanel";
 import {Advertisement} from "components/Advertisement";
-import { Legend } from "components/Legend";
+import {Legend} from "components/Legend";
 
 export class URMap extends React.Component {
     public render() {

@@ -1,6 +1,6 @@
 import React from "react";
 import "components/MapComponent.scss";
-import "components/SearchBox.scss";
+import "components/ControlPanel/SearchBox.scss";
 
 declare const google: any;
 
