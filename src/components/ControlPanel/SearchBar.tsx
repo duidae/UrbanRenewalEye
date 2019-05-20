@@ -6,6 +6,7 @@ export class SearchBar extends React.Component {
         return (
             <div className="SearchBar">
                 <input type="text"/>
+                <img src="mylocation.png" alt="my location"/>
             </div>
         );
     }
