@@ -1,6 +1,6 @@
 import React from "react";
 import {MapComponent} from "components/MapComponent";
-import {ControlComponent} from "components/ControlPanel/ControlComponent";
+import {ControlComponent} from "components/ControlComponent/ControlComponent";
 import {ADComponent} from "components/ADComponent";
 import {LegendComponent} from "components/LegendComponent";
 

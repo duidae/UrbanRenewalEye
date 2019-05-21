@@ -1,7 +1,7 @@
 import React from "react";
-import {Header} from "components/ControlPanel/Header";
-import {SearchBar} from "components/ControlPanel/SearchBar";
-import "components/ControlPanel/ControlComponent.scss";
+import {Header} from "components/ControlComponent/Header";
+import {SearchBar} from "components/ControlComponent/SearchBar";
+import "components/ControlComponent/ControlComponent.scss";
 
 export const ControlComponent: React.FC = () => {
     return (

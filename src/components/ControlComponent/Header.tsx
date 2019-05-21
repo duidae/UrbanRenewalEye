@@ -1,5 +1,5 @@
 import React from "react";
-import "components/ControlPanel/Header.scss";
+import "components/ControlComponent/Header.scss";
 
 export const Header: React.FC = () => {
     return (

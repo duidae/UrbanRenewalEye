@@ -1,5 +1,5 @@
 import React from "react";
-import "components/ControlPanel/SearchBar.scss";
+import "components/ControlComponent/SearchBar.scss";
 
 declare const google: any;
 
