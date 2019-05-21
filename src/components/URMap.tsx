@@ -1,18 +1,16 @@
 import React from "react";
 import {MapComponent} from "components/MapComponent";
-import {ControlPanel} from "components/ControlPanel/ControlPanel";
-import {Advertisement} from "components/Advertisement";
-import {Legend} from "components/Legend";
+import {ControlComponent} from "components/ControlPanel/ControlComponent";
+import {ADComponent} from "components/ADComponent";
+import {LegendComponent} from "components/LegendComponent";
 
-export class URMap extends React.Component {
-    public render() {
-        return (
-            <div>
-                <MapComponent id="URMap" enableSearchBox={true}/>
-                <ControlPanel/>
-                <Legend/>
-                <Advertisement/>
-            </div>
-        );
-    }
+export const URMap: React.FC = () => {
+    return (
+        <div>
+            <MapComponent id="URMap" enableSearchBox={true}/>
+            <ControlComponent/>
+            <LegendComponent/>
+            <ADComponent/>
+        </div>
+    );
 }
