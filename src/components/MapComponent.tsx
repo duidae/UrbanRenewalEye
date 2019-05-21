@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "components/MapComponent.scss";
-import "components/ControlComponent/SearchBox.scss";
 
 declare const google: any;
 
@@ -9,68 +8,21 @@ interface MapComponentProps {
     enableSearchBox?: boolean
 }
 
-export class MapComponent extends React.Component<MapComponentProps> {
-    private static readonly TAIPEI = {lat: 25.038357847174, lng: 121.54770626982};
-    private static readonly ZOOM_INITIAL = 13;
+export const MapComponent: React.FC<MapComponentProps> = (props) => {
+    const TAIPEI = {lat: 25.038357847174, lng: 121.54770626982};
+    const ZOOM_INITIAL = 13;
 
-    private map: any;
-
-    private onBoundsChange = () => {
-        //this.searchBox.setBounds(this.map.getBounds());
-    };
-
-    /*
-    private onPlaceChange = () => {
-        const places = this.searchBox.getPlaces();
-
-        if (places.length === 0) {
-            return;
-        }
-
-        // For each place, get the icon, name and location.
-        let bounds = new google.maps.LatLngBounds();
-        places.forEach((place: any) => {
-            if (!place.geometry) {
-                console.log("Returned place contains no geometry");
-                return;
-            }
-
-            if (place.geometry.viewport) {
-                // Only geocodes have viewport.
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
-            }
-        });
-        this.map.fitBounds(bounds);
-    };
-    */
-
-    componentDidMount() {
-        this.map = new google.maps.Map(document.getElementById(this.props.id), {
-            center: MapComponent.TAIPEI,
-            zoom: MapComponent.ZOOM_INITIAL,
+    useEffect(() => {
+        const map = new google.maps.Map(document.getElementById(props.id), {
+            center: TAIPEI,
+            zoom: ZOOM_INITIAL,
             mapTypeControl: false,
         });
-        this.map.addListener('bounds_changed', this.onBoundsChange);
+        map.addListener('bounds_changed', () => {
+        });
+    });
 
-        /*
-        if (this.props.enableSearchBox) {
-            const input = document.getElementById(this.props.id+"-searchbox");
-
-            // TODO: move searchBox to store
-            this.searchBox = new google.maps.places.SearchBox(input);
-            //this.map.controls[google.maps.ControlPosition.TOP_CENTER].push(this.searchBox);
-
-            this.map.addListener('bounds_changed', this.onBoundsChange);
-            this.searchBox.addListener('places_changed', this.onPlaceChange);
-        }
-        */
-    }
-
-    render() {
-        return (
-            <div className="Map" id={this.props.id}/>
-        );
-    }
+    return (
+        <div className="Map" id={props.id}/>
+    );
 }
